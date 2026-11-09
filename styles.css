@@ -1,0 +1,126 @@
+:root {
+  --paper: #f9f9f7;
+  --ink: #0b0b0a;
+  --muted: #636360;
+  --line: #a5a5a0;
+  --page-width: 1320px;
+  --gutter: clamp(22px, 4.25vw, 64px);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; -webkit-font-smoothing: antialiased; }
+body:has(dialog[open]) { overflow: hidden; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; color: inherit; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+button { border: 0; padding: 0; background: none; }
+button, a { touch-action: manipulation; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+p, h1, h2 { margin: 0; }
+.page-shell { width: min(calc(100% - var(--gutter) * 2), var(--page-width)); margin: auto; }
+.skip-link { position: absolute; left: 20px; top: -90px; z-index: 10; padding: 14px 20px; background: var(--ink); color: white; }
+.skip-link:focus { top: 16px; }
+.site-header { min-height: 112px; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 16px 12px 20px; border-bottom: 1px solid var(--line); }
+.brand { display: block; width: 156px; flex-shrink: 0; }
+.brand img { display: block; width: 100%; height: auto; }
+.site-header nav, .site-footer nav { display: flex; align-items: center; gap: 44px; }
+.site-header nav { font-size: 20px; }
+.text-button { text-align: left; }
+.site-header nav a, .text-button { text-underline-offset: 5px; }
+.site-header nav a:hover, .text-button:hover { text-decoration: underline; }
+.hero { padding: 48px 12px 60px; }
+.eyebrow { font-size: 18px; font-weight: 500; letter-spacing: .14em; line-height: 1.45; text-transform: uppercase; }
+.hero .eyebrow span { margin: 0 4px; }
+h1 { font-size: clamp(56px, 7.55vw, 108px); line-height: .97; letter-spacing: -.045em; font-weight: 700; margin: 25px 0 20px -4px; }
+.hero-bottom { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+.hero-subtitle { font-size: clamp(22px, 2.75vw, 36px); line-height: 1.45; letter-spacing: -.015em; }
+.arrow-link { display: inline-flex; align-items: baseline; gap: 8px; width: fit-content; border-bottom: 1px solid currentColor; padding-bottom: 2px; font-size: clamp(20px, 2.15vw, 28px); line-height: 1.2; white-space: nowrap; }
+.arrow-link span { display: inline-block; transition: transform .18s ease; }
+.arrow-link:hover span { transform: translate(2px, -2px); }
+.sessions { scroll-margin-top: 28px; }
+.session-trigger { display: block; width: 100%; text-align: left; }
+.session-poster { display: block; position: relative; overflow: hidden; width: 100%; aspect-ratio: 994 / 445; background: #28291f; }
+/* Photo window from the supplied 1086 × 1448 reference: x=46, y=471,
+   width=994, height=445. This is CSS framing, not a flattened website:
+   every headline, section and control outside this photo is real HTML. */
+.reference-photo { position: absolute; width: 109.2555332%; max-width: none; height: auto; left: -4.6277666%; top: -105.8426966%; pointer-events: none; }
+.session-poster.custom-poster .reference-photo { width: 100%; height: 100%; left: 0; top: 0; object-fit: cover; }
+.custom-play { position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: clamp(56px, 8.5vw, 100px); aspect-ratio: 1; border: 3px solid white; border-radius: 50%; display: grid; place-items: center; }
+.custom-play::after { content: ''; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid white; margin-left: 5px; }
+.session-hover-label { position: absolute; left: 18px; bottom: 18px; display: inline-flex; align-items: center; gap: 16px; padding: 12px 16px; background: var(--paper); color: var(--ink); font-size: 16px; opacity: 0; translate: 0 5px; transition: opacity .18s, translate .18s; }
+.session-trigger:hover .session-hover-label, .session-trigger:focus-visible .session-hover-label { opacity: 1; translate: 0 0; }
+.session-caption { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 13px 4px 0; }
+.session-caption h2 { font-size: 20px; line-height: 1.35; letter-spacing: -.01em; }
+.session-caption p { font-size: 18px; line-height: 1.6; color: var(--muted); }
+.session-caption .session-status { font-size: 16px; white-space: nowrap; }
+.workshops { display: grid; grid-template-columns: 1fr 1fr; gap: 7%; padding: 0 12px; margin-top: 84px; margin-bottom: 62px; scroll-margin-top: 36px; }
+.workshops-intro h2 { font-size: clamp(42px, 5.8vw, 78px); letter-spacing: -.045em; line-height: 1.04; margin: 22px 0 32px -3px; }
+.workshop-list { padding-top: 28px; }
+.workshop { width: 100%; display: block; text-align: left; padding: 0 0 24px; }
+.workshop + .workshop { padding: 23px 0 0; border-top: 1px solid var(--line); }
+.workshop-title { display: block; font-size: clamp(28px, 3.7vw, 49px); font-weight: 700; letter-spacing: -.035em; line-height: 1.15; margin-bottom: 4px; }
+.workshop-description { display: block; color: var(--muted); font-size: clamp(16px, 1.8vw, 23px); line-height: 1.45; }
+.workshop:hover .workshop-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.site-footer { border-top: 1px solid var(--line); padding: 18px 4px 16px; }
+.footer-row { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; font-size: 16px; line-height: 1.5; }
+.site-footer nav { gap: 40px; }
+.concept-note { font-size: 12px; font-style: italic; color: var(--muted); margin-top: 20px; }
+dialog { width: min(640px, calc(100% - 36px)); max-height: calc(100dvh - 40px); padding: 0; border: 1px solid var(--line); color: var(--ink); background: var(--paper); overflow: auto; }
+dialog::backdrop { background: rgb(0 0 0 / .48); backdrop-filter: blur(3px); }
+.dialog-inner { padding: 48px 40px 40px; }
+.dialog-close { position: absolute; top: 8px; right: 12px; width: 44px; height: 44px; font-size: 32px; line-height: 1; }
+.dialog-inner .eyebrow { font-size: 12px; margin-bottom: 18px; padding-right: 20px; }
+.dialog-inner h2 { font-size: clamp(32px, 5vw, 48px); line-height: 1.05; letter-spacing: -.04em; margin-bottom: 22px; }
+.dialog-inner p { line-height: 1.6; font-size: 17px; margin-top: 16px; }
+.dialog-inner .dialog-lead { font-size: 22px; line-height: 1.4; }
+.dialog-inner .availability { color: var(--muted); padding-top: 18px; margin-top: 24px; border-top: 1px solid var(--line); font-size: 15px; }
+.dialog-options { margin-top: 24px; }
+.dialog-options button { display: flex; width: 100%; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--line); text-align: left; font-size: 20px; }
+.watch-link { margin-top: 24px; font-size: 20px; }
+video { display: block; width: 100%; max-height: 60vh; margin-top: 22px; background: #111; }
+.noscript-note { padding: 18px; text-align: center; }
+@media (min-width: 1400px) { .site-header { padding-top: 24px; padding-bottom: 24px; } .hero { padding-top: 58px; } .workshops { margin-top: 100px; } }
+@media (max-width: 760px) {
+  .site-header { min-height: 96px; padding: 14px 0 16px; gap: 18px; }
+  .brand { width: 126px; }
+  .site-header nav { gap: 20px; font-size: 16px; }
+  .hero { padding: 38px 0 38px; }
+  .eyebrow { font-size: 13px; letter-spacing: .12em; }
+  h1 { font-size: clamp(46px, 9.2vw, 70px); margin: 22px 0 22px -2px; line-height: 1; }
+  .hero-bottom { display: block; }
+  .hero-subtitle { font-size: clamp(20px, 3.8vw, 28px); }
+  .hero-bottom .arrow-link { margin-top: 24px; }
+  .session-caption { padding-left: 0; padding-right: 0; }
+  .session-caption h2 { font-size: 17px; }
+  .session-caption p { font-size: 15px; }
+  .session-caption .session-status { font-size: 13px; }
+  .workshops { margin-top: 56px; margin-bottom: 44px; padding: 0; grid-template-columns: 1fr; gap: 32px; }
+  .workshops-intro h2 { font-size: clamp(44px, 8vw, 62px); margin: 18px 0 24px; }
+  .workshop-list { padding: 0; }
+  .workshop-title { font-size: 31px; }
+  .workshop-description { font-size: 17px; }
+  .workshop { padding-bottom: 20px; }
+  .workshop + .workshop { padding-top: 20px; }
+  .footer-row { flex-direction: column; gap: 18px; font-size: 15px; }
+  .site-footer nav { gap: 28px; }
+  .session-hover-label { font-size: 12px; padding: 8px 10px; left: 10px; bottom: 10px; }
+}
+@media (max-width: 420px) {
+  .site-header { flex-wrap: wrap; gap: 14px; }
+  .brand { width: 116px; }
+  .site-header nav { font-size: 14px; gap: 16px; }
+  .hero .eyebrow { max-width: 270px; line-height: 1.7; }
+  .dialog-inner { padding: 48px 24px 28px; }
+  .session-caption { gap: 12px; }
+  .session-caption h2 { font-size: 16px; }
+  .session-caption p { font-size: 14px; }
+  .session-caption .session-status { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
