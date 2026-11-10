@@ -2,7 +2,7 @@
   "name": "hmm-human-making-music",
   "version": "1.0.0",
   "private": true,
-  "description": "HMM — Human Making Music. Static website concept for Ottawa live sessions and workshops.",
+  "description": "Humans Making Music. Static website concept for Ottawa live sessions and workshops.",
   "type": "module",
   "license": "UNLICENSED",
   "engines": { "node": ">=18" },

@@ -1,4 +1,4 @@
-# HMM — Human Making Music
+# HMM · Humans Making Music
 
 Code de la maquette HMM : sessions live, ateliers Ableton Live et performance électronique, Ottawa.
 
@@ -32,9 +32,9 @@ Ouvrir http://localhost:4173. Aucune commande `npm install` n'est nécessaire. L
 
 Dans `config.js`, remplacer les valeurs `null` seulement quand les liens sont connus :
 
-- `session.videoUrl` : URL HTTPS de la session (YouTube, Vimeo, etc.). Un bouton ouvre le fournisseur dans un nouvel onglet, sans charger de lecteur tiers avant le clic.
+- `session.videoUrl` : URL HTTPS de la session (YouTube, Vimeo, etc.). Un clic sur la couverture intègre le lecteur YouTube au démarrage indiqué par `t`, ou ouvre le fournisseur dans un nouvel onglet pour les autres services. Aucun lecteur tiers n'est chargé avant le clic.
 - `session.videoFile` : chemin d'un MP4/WebM local ou URL directe. Un lecteur HTML natif apparaît dans la fenêtre de session. Prioritaire sur `videoUrl`.
-- `session.poster` : chemin d'une photo seule, par exemple `assets/session-001.jpg`. Elle remplace automatiquement l'image de référence et reçoit un bouton de lecture dessiné en CSS.
+- `session.poster` : chemin d'une photo seule, par exemple `assets/session-001.jpg`. Elle remplace l'affiche définie dans `index.html` et reçoit un bouton de lecture dessiné en CSS.
 - `contactEmail`, `instagramUrl`, `youtubeUrl` : coordonnées officielles de HMM.
 
 Le statut devient « Watch now » dès qu'une vidéo valide est configurée. Sans vidéo, le bouton présente les détails « Coming soon ». Aucun enregistrement, formulaire, paiement ou message automatique n'est activé. Les réseaux non renseignés affichent un message explicite ; aucun compte HMM n'a été inventé. Ne mettre aucun secret dans les fichiers du site.
@@ -45,7 +45,7 @@ Les descriptifs complémentaires des ateliers sont des textes de présentation �
 
 La page conserve le fond clair, le logo HMM, le titre sur deux lignes, la grande session, la section ateliers en deux colonnes sur ordinateur et le pied de page minimal. Sur petit écran, les blocs se réorganisent verticalement.
 
-Le fichier `assets/hmm-reference.png` est la maquette fournie. Pour conserver **exactement** la photographie de cette maquette, elle est cadrée dans le bloc session par CSS. Le bouton de lecture visible dans la photographie est celui de la référence ; le conteneur est un véritable bouton accessible. Le reste du site est du HTML/CSS, pas une image de page. Cette image sert de visuel de concept, et ne prétend pas être une photo des fondateurs. Une photo de session originale pourra la remplacer via `session.poster`, sans toucher à la mise en page. Les logos SVG sont les fichiers HMM existants.
+L'affiche de la session est une image YouTube (`i.ytimg.com`). `assets/hmm-reference.png` reste la maquette fournie et sert d'image de secours si l'affiche distante ne charge pas. Le conteneur est un véritable bouton accessible : au clic, le lecteur YouTube est intégré dans le bloc session, sans chargement tiers avant l'interaction. Le reste du site est du HTML/CSS, pas une image de page. Les logos SVG sont les fichiers HMM existants.
 
 ## Dépôt partagé
 

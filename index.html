@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f9f9f7">
-  <meta name="description" content="Human Making Music. Independent music culture in Ottawa. Live sessions and shared knowledge with Brain Waves and Majorquad.">
-  <title>HMM — Human Making Music</title>
+  <meta name="description" content="Humans Making Music. Independent music culture in Ottawa. Live sessions and shared knowledge with Brain Waves and Majorquad.">
+  <title>Humans Making Music</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script src="config.js" defer></script>
@@ -15,8 +15,8 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="page-shell">
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="HMM — Human Making Music, home">
-        <img src="assets/hmm-logo-black.svg" width="166" height="79" alt="HMM — Human Making Music">
+      <a class="brand" href="#top" aria-label="Humans Making Music, home">
+        <img src="assets/hmm-logo-black.svg" width="166" height="79" alt="Humans Making Music">
       </a>
       <nav aria-label="Main navigation">
         <a href="#sessions">Sessions</a>
@@ -28,7 +28,7 @@
     <main id="main">
       <section class="hero" id="top" aria-labelledby="hero-title">
         <p class="eyebrow">Independent music culture <span aria-hidden="true">·</span> Ottawa</p>
-        <h1 id="hero-title">Human making<br>music.</h1>
+        <h1 id="hero-title">Humans Making<br>Music.</h1>
         <div class="hero-bottom">
           <p class="hero-subtitle">Live sessions. Shared knowledge.</p>
           <a class="arrow-link" href="#sessions">Explore sessions <span aria-hidden="true">↗</span></a>
@@ -36,11 +36,11 @@
       </section>
 
       <section id="sessions" class="sessions" aria-labelledby="session-title">
-        <button class="session-trigger" id="session-trigger" type="button" aria-haspopup="dialog" aria-controls="session-dialog" aria-label="HMM Session 001 — coming soon. View session details.">
+        <button class="session-trigger" id="session-trigger" type="button" aria-haspopup="dialog" aria-controls="session-dialog" aria-label="Play HMM Session 001.">
           <span class="session-poster" id="session-poster">
-            <!-- The reference is framed with CSS to retain its exact session photograph.
-                 Its printed play icon is preserved. See README for replacing the poster. -->
-            <img class="reference-photo" src="assets/hmm-reference.png" width="1086" height="1448" alt="Two musicians playing an Elektron groovebox and an analogue synthesizer in a daylight studio." fetchpriority="high">
+            <!-- Click-to-load facade: the session video is embedded only after a click.
+                 The poster falls back to assets/hmm-reference.png if the remote image fails. -->
+            <img class="reference-photo" src="https://i.ytimg.com/vi/DjnZyjZngXo/maxresdefault.jpg" width="1280" height="720" alt="HMM Session 001 cover with two musicians playing an Elektron groovebox and an analogue synthesizer in a daylight studio." fetchpriority="high">
             <span class="session-hover-label" aria-hidden="true">Discover the session <span>↗</span></span>
           </span>
         </button>
@@ -74,7 +74,7 @@
 
     <footer class="site-footer">
       <div class="footer-row">
-        <p>HMM — Human Making Music</p>
+        <p>HMM · Humans Making Music</p>
         <nav aria-label="Social and contact links">
           <button type="button" class="text-button" data-channel="contact">Contact</button>
           <button type="button" class="text-button" data-channel="instagram">Instagram</button>
@@ -138,7 +138,7 @@
     <div class="dialog-inner">
       <button class="dialog-close" type="button" data-close aria-label="Close About HMM">×</button>
       <p class="eyebrow">Independent music culture · Ottawa</p>
-      <h2 id="about-dialog-title">Human making music.</h2>
+      <h2 id="about-dialog-title">Humans making music.</h2>
       <p class="dialog-lead">Live sessions. Shared knowledge.</p>
       <p>HMM is a music project in Ottawa by Brain Waves and Majorquad. It brings together live electronic performance, guest sessions and workshops.</p>
       <p>A space to play, experiment and share the process.</p>
@@ -148,7 +148,7 @@
   <dialog id="channel-dialog" aria-labelledby="channel-dialog-title">
     <div class="dialog-inner">
       <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
-      <p class="eyebrow">Human Making Music</p>
+      <p class="eyebrow">Humans Making Music</p>
       <h2 id="channel-dialog-title">Stay close.</h2>
       <p id="channel-dialog-message">Our channels are coming soon.</p>
     </div>
