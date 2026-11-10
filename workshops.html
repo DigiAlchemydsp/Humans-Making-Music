@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9f9f7">
+  <meta name="description" content="Humans Making Music workshop notes: sound design, advanced techniques, studio routing and mastering.">
+  <title>Workshops | Humans Making Music</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Humans Making Music, home">
+        <img src="assets/hmm-logo-black.svg" width="166" height="79" alt="Humans Making Music">
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="index.html#sessions">Sessions</a>
+        <a href="workshops.html" aria-current="page">Workshops</a>
+        <button class="text-button" type="button" data-dialog="about-dialog">About</button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <p class="eyebrow">Shared knowledge <span aria-hidden="true">·</span> Ottawa</p>
+        <h1 id="hero-title">Workshops and<br>articles.</h1>
+        <div class="hero-bottom">
+          <p class="hero-subtitle">Sound design. Studio routing. Mastering.</p>
+          <a class="arrow-link" href="index.html">Back to sessions <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section id="articles" class="workshops" aria-labelledby="articles-title">
+        <div class="workshops-intro">
+          <p class="eyebrow">Articles</p>
+          <h2 id="articles-title">Read before<br>you patch.</h2>
+          <p class="articles-note">Notes from the sessions, written to be used in the room.</p>
+        </div>
+        <div class="workshop-list">
+          <button class="workshop" type="button" data-dialog="sound-design-dialog">
+            <span class="workshop-meta">Sound design</span>
+            <span class="workshop-title">Start with one sound.</span>
+            <span class="workshop-description">Shaping a patch until it carries the track on its own.</span>
+          </button>
+          <button class="workshop" type="button" data-dialog="advanced-dialog">
+            <span class="workshop-meta">Advanced techniques</span>
+            <span class="workshop-title">Make the take do more.</span>
+            <span class="workshop-description">Macros, resampling and performance moves that keep a loop alive.</span>
+          </button>
+          <button class="workshop" type="button" data-dialog="routing-dialog">
+            <span class="workshop-meta">Studio routing</span>
+            <span class="workshop-title">Follow the signal.</span>
+            <span class="workshop-description">Gain staging, patchbays and a hybrid setup you can repeat.</span>
+          </button>
+          <button class="workshop" type="button" data-dialog="mastering-dialog">
+            <span class="workshop-meta">Mastering</span>
+            <span class="workshop-title">Translate everywhere.</span>
+            <span class="workshop-description">References, loudness and delivery without losing the mix.</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-row">
+        <p>HMM · Humans Making Music</p>
+        <nav aria-label="Social and contact links">
+          <button type="button" class="text-button" data-channel="contact">Contact</button>
+          <button type="button" class="text-button" data-channel="instagram">Instagram</button>
+          <button type="button" class="text-button" data-channel="youtube">YouTube</button>
+        </nav>
+      </div>
+      <p class="concept-note">Website concept</p>
+    </footer>
+  </div>
+
+  <dialog id="sound-design-dialog" aria-labelledby="sound-design-title">
+    <div class="dialog-inner">
+      <button class="dialog-close" type="button" data-close aria-label="Close sound design article">×</button>
+      <p class="eyebrow">Sound design</p>
+      <h2 id="sound-design-title">Start with one sound.</h2>
+      <p class="dialog-lead">Make a single patch carry the track before you arrange anything.</p>
+      <p>Pick one source, shape it with a filter and a short envelope, then listen to what the room does to it. A sound that works alone rarely needs much company.</p>
+      <p>We look at layering, noise as texture, and the small movements in pitch and level that keep a loop alive. Then we record the result as audio, so the part becomes a fixed decision instead of another preset to browse.</p>
+    </div>
+  </dialog>
+
+  <dialog id="advanced-dialog" aria-labelledby="advanced-title">
+    <div class="dialog-inner">
+      <button class="dialog-close" type="button" data-close aria-label="Close advanced techniques article">×</button>
+      <p class="eyebrow">Advanced techniques</p>
+      <h2 id="advanced-title">Make the take do more.</h2>
+      <p class="dialog-lead">Turn a clean pattern into a performance.</p>
+      <p>Macros, conditional triggers and hand-played automation let a loop breathe without adding more elements. One good part, played with intent, holds a room longer than five safe ones.</p>
+      <p>We work through resampling, controlled feedback and ways to keep a hybrid setup repeatable. The goal is a performance you can repeat and a recording you can edit.</p>
+    </div>
+  </dialog>
+
+  <dialog id="routing-dialog" aria-labelledby="routing-title">
+    <div class="dialog-inner">
+      <button class="dialog-close" type="button" data-close aria-label="Close studio routing article">×</button>
+      <p class="eyebrow">Studio routing</p>
+      <h2 id="routing-title">Follow the signal.</h2>
+      <p class="dialog-lead">Know every stage between the instrument and the speakers.</p>
+      <p>Gain staging comes first. Set levels at the source, leave headroom at each stage, and label the path from instrument to interface to monitors.</p>
+      <p>We cover patchbays, sends and returns, latency compensation and clocking for hybrid rigs. A routing plan drawn on paper saves hours in the room.</p>
+    </div>
+  </dialog>
+
+  <dialog id="mastering-dialog" aria-labelledby="mastering-title">
+    <div class="dialog-inner">
+      <button class="dialog-close" type="button" data-close aria-label="Close mastering article">×</button>
+      <p class="eyebrow">Mastering</p>
+      <h2 id="mastering-title">Translate everywhere.</h2>
+      <p class="dialog-lead">A master that holds up on small speakers and headphones.</p>
+      <p>Mastering starts with a mix that already balances itself. We compare against reference tracks, watch the low end, and test on small speakers before touching the limiter.</p>
+      <p>We look at loudness targets for streaming, sequencing, and how to deliver files with the right headroom. A quiet master that translates beats a loud one that does not.</p>
+    </div>
+  </dialog>
+
+  <dialog id="about-dialog" aria-labelledby="about-dialog-title">
+    <div class="dialog-inner">
+      <button class="dialog-close" type="button" data-close aria-label="Close About HMM">×</button>
+      <p class="eyebrow">Independent music culture · Ottawa</p>
+      <h2 id="about-dialog-title">Humans making music.</h2>
+      <p class="dialog-lead">Live sessions. Shared knowledge.</p>
+      <p>HMM is a music project in Ottawa by Brain Waves and Majorquad. It brings together live electronic performance, guest sessions and workshops.</p>
+      <p>A space to play, experiment and share the process.</p>
+    </div>
+  </dialog>
+
+  <dialog id="channel-dialog" aria-labelledby="channel-dialog-title">
+    <div class="dialog-inner">
+      <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
+      <p class="eyebrow">Humans Making Music</p>
+      <h2 id="channel-dialog-title">Stay close.</h2>
+      <p id="channel-dialog-message">Our channels are coming soon.</p>
+    </div>
+  </dialog>
+  <noscript><p class="noscript-note">Enable JavaScript to open the workshop articles. All titles and summaries are readable without it.</p></noscript>
+</body>
+</html>

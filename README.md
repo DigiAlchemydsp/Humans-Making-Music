@@ -21,6 +21,7 @@ Ouvrir http://localhost:4173. Aucune commande `npm install` n'est nécessaire. L
 | Fichier | Contenu |
 | --- | --- |
 | `index.html` | Textes, sections, informations des ateliers et fenêtres de détails |
+| `workshops.html` | Page ateliers : liste des articles et fenêtres de lecture |
 | `styles.css` | Mise en page ordinateur/mobile, typographie, couleurs |
 | `config.js` | Titre/artistes de la session, vidéo, affiche, email et réseaux HMM |
 | `app.js` | Interactions, fenêtres accessibles, lecture vidéo et liens |
@@ -40,6 +41,12 @@ Dans `config.js`, remplacer les valeurs `null` seulement quand les liens sont co
 Le statut devient « Watch now » dès qu'une vidéo valide est configurée. Sans vidéo, le bouton présente les détails « Coming soon ». Aucun enregistrement, formulaire, paiement ou message automatique n'est activé. Les réseaux non renseignés affichent un message explicite ; aucun compte HMM n'a été inventé. Ne mettre aucun secret dans les fichiers du site.
 
 Les descriptifs complémentaires des ateliers sont des textes de présentation à affiner ensemble. Aucune date ni réservation n'est annoncée.
+
+## Publier un article
+
+`workshops.html` regroupe les articles de fond : sound design, techniques avancées, routage studio et mastering. Le lien « Workshops » de la navigation principale et « Explore workshops » sur l'accueil mènent à cette page.
+
+Pour publier un article, dupliquer un bloc `<dialog id="...">` dans `workshops.html`, y écrire le texte, puis ajouter un bouton correspondant dans `.workshop-list` avec `data-dialog="..."` pointant vers cet identifiant. La page réutilise `styles.css` et `app.js`, sans dépendance ni compilation supplémentaire.
 
 ## Fidélité à la maquette
 
