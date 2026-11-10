@@ -1,0 +1,72 @@
+name: Email changelog
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    env:
+      SMTP_HOST: ${{ secrets.SMTP_HOST }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      MAIL_FROM: ${{ secrets.MAIL_FROM }}
+      MAIL_TO: ${{ secrets.MAIL_TO }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compose changelog
+        shell: bash
+        run: |
+          before="${{ github.event.before }}"
+          after="${{ github.event.after }}"
+          if [ -z "$before" ] || [ "$before" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$before^{commit}" 2>/dev/null; then
+            commits=$(git log -1 --pretty=format:'- %h %s (%an)')
+            files=$(git show --stat --format='' -1)
+            compare="${{ github.server_url }}/${{ github.repository }}/commit/${after}"
+            count=1
+          else
+            commits=$(git log --pretty=format:'- %h %s (%an)' "$before..$after")
+            files=$(git diff --stat "$before" "$after")
+            compare="${{ github.server_url }}/${{ github.repository }}/compare/${before}...${after}"
+            count=$(git rev-list --count "$before..$after")
+          fi
+          {
+            echo "MAIL_SUBJECT=Humans Making Music: ${count} new commit(s) on main"
+            echo "MAIL_BODY<<CHANGELOG_EOF"
+            echo "New push on main for Humans Making Music."
+            echo
+            echo "$commits"
+            echo
+            echo "Files changed:"
+            echo "$files"
+            echo
+            echo "Compare: $compare"
+            echo "Site: https://digialchemydsp.github.io/Humans-Making-Music/"
+            echo "CHANGELOG_EOF"
+          } >> "$GITHUB_ENV"
+
+      - name: Send email
+        if: env.SMTP_HOST != '' && env.MAIL_TO != ''
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ env.SMTP_HOST }}
+          server_port: ${{ env.SMTP_PORT }}
+          secure: true
+          username: ${{ env.SMTP_USERNAME }}
+          password: ${{ env.SMTP_PASSWORD }}
+          subject: ${{ env.MAIL_SUBJECT }}
+          to: ${{ env.MAIL_TO }}
+          from: ${{ env.MAIL_FROM }}
+          body: ${{ env.MAIL_BODY }}
+
+      - name: Secrets not configured
+        if: env.SMTP_HOST == '' || env.MAIL_TO == ''
+        run: echo "::notice::Set SMTP_HOST, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD, MAIL_FROM and MAIL_TO as repository secrets to enable email notifications."

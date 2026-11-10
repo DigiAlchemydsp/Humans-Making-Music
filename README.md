@@ -72,6 +72,23 @@ Le dépôt étant privé, GitHub demandera une authentification autorisée pour 
 
 Garder `main` comme version de référence. Créer une branche pour chaque changement, par exemple `feature/workshops` ou `design/homepage`, puis ouvrir une pull request. Relire avant d'intégrer. Un seul fichier de configuration centralise les liens.
 
+## Notification par courriel
+
+`.github/workflows/notify.yml` envoie un courriel à chaque push sur `main` : liste des commits, fichiers modifiés, lien de comparaison et adresse du site.
+
+Ajouter ces secrets dans **Settings → Secrets and variables → Actions**, ou avec `gh secret set` :
+
+| Secret | Exemple |
+| --- | --- |
+| `SMTP_HOST` | `smtp.gmail.com` |
+| `SMTP_PORT` | `465` |
+| `SMTP_USERNAME` | adresse d'envoi |
+| `SMTP_PASSWORD` | mot de passe d'application |
+| `MAIL_FROM` | adresse d'envoi |
+| `MAIL_TO` | adresse du collaborateur |
+
+Le port 465 est utilisé en TLS. Sans secrets, le workflow se termine sans envoyer de courriel et l'indique dans le journal.
+
 ## Contrôler et préparer un hébergement
 
 ```sh
