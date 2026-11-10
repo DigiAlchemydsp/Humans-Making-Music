@@ -65,6 +65,12 @@ h1 { font-size: clamp(56px, 7.55vw, 108px); line-height: .97; letter-spacing: -.
 .workshop-description { display: block; color: var(--muted); font-size: clamp(16px, 1.8vw, 23px); line-height: 1.45; }
 .workshop-meta { display: block; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
 .articles-note { margin-top: 18px; max-width: 32ch; color: var(--muted); font-size: 17px; line-height: 1.6; }
+.article-card { display: grid; grid-template-columns: minmax(132px, 36%) 1fr; gap: 22px; align-items: start; }
+.article-card .workshop-thumb { display: block; overflow: hidden; aspect-ratio: 16 / 9; background: #28291f; }
+.article-card .workshop-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.article-card:hover .workshop-thumb img { transform: scale(1.03); }
+.article-card .workshop-body { display: block; }
+.article-card .workshop-meta { margin-top: 2px; }
 .workshop:hover .workshop-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
 .site-footer { border-top: 1px solid var(--line); padding: 18px 4px 16px; }
 .footer-row { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; font-size: 16px; line-height: 1.5; }
@@ -104,6 +110,7 @@ video { display: block; width: 100%; max-height: 60vh; margin-top: 22px; backgro
   .workshop-list { padding: 0; }
   .workshop-title { font-size: 31px; }
   .workshop-description { font-size: 17px; }
+  .article-card { grid-template-columns: 1fr; gap: 14px; }
   .workshop { padding-bottom: 20px; }
   .workshop + .workshop { padding-top: 20px; }
   .footer-row { flex-direction: column; gap: 18px; font-size: 15px; }
