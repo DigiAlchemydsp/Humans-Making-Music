@@ -9,6 +9,6 @@
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "build": "node scripts/build.mjs",
-    "check": "node --check app.js && node --check config.js && node --check scripts/serve.mjs && node --check scripts/build.mjs"
+    "check": "node --check app.js && node --check config.js && node --check booking.js && node --check --input-type=commonjs < booking-service/Code.gs && node --check scripts/serve.mjs && node --check scripts/build.mjs"
   }
 }

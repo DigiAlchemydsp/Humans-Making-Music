@@ -132,3 +132,9 @@ video { display: block; width: 100%; max-height: 60vh; margin-top: 22px; backgro
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
+.booking-link { text-decoration: underline; text-underline-offset: .22em; }
+@media (max-width: 620px) {
+  .site-header { flex-wrap: wrap; }
+  .site-header nav { flex-wrap: wrap; gap: 12px 20px; }
+}

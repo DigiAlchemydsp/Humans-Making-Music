@@ -38,9 +38,20 @@ Dans `config.js`, remplacer les valeurs `null` seulement quand les liens sont co
 - `session.poster` : chemin d'une photo seule, par exemple `assets/session-001.jpg`. Elle remplace l'affiche définie dans `index.html` et reçoit un bouton de lecture dessiné en CSS.
 - `contactEmail`, `instagramUrl`, `youtubeUrl` : coordonnées officielles de HMM.
 
-Le statut devient « Watch now » dès qu'une vidéo valide est configurée. Sans vidéo, le bouton présente les détails « Coming soon ». Aucun enregistrement, formulaire, paiement ou message automatique n'est activé. Les réseaux non renseignés affichent un message explicite ; aucun compte HMM n'a été inventé. Ne mettre aucun secret dans les fichiers du site.
+Le statut devient « Watch now » dès qu'une vidéo valide est configurée. Sans vidéo, le bouton présente les détails « Coming soon ». La réservation et ses confirmations se configurent séparément dans la section « Réservations ». Les réseaux non renseignés affichent un message explicite ; aucun compte HMM n'a été inventé. Ne mettre aucun secret dans les fichiers du site.
 
-Les descriptifs complémentaires des ateliers sont des textes de présentation à affiner ensemble. Aucune date ni réservation n'est annoncée.
+Les descriptifs complémentaires des ateliers sont des textes de présentation à affiner ensemble. Les dates réservables proviennent du calendrier administré par HMM.
+
+## Réservations
+La page `booking.html` présente les ateliers et les demandes pour le duo. Elle fonctionne sous le chemin du projet GitHub Pages. Les données personnelles et l’envoi des messages sont gérés dans le compte Google choisi par HMM.
+
+1. Depuis ce compte, créer un projet dans Google Apps Script. Copier `booking-service/Code.gs` et `booking-service/appsscript.json` dans l’éditeur (le manifeste s’affiche via les paramètres du projet).
+2. Exécuter `setup` une fois et autoriser le script. Il crée un classeur privé, initialise les feuilles et installe la relance des courriels. Le lien du classeur apparaît dans le journal d’exécution. L’expéditeur est le compte Google qui déploie le script. La propriété de script `HMM_TEAM_EMAIL` fixe la boîte de réponse et de notification, initialement celle du propriétaire.
+3. Déployer comme **Application Web**, exécuter en tant que propriétaire et autoriser **Tout le monde**. Copier l’URL publique terminant par `/exec` dans `bookingApiUrl` dans `config.js`. Seul ce point d’accès à la réservation est public. Garder le classeur privé. Pour mettre le script à jour, modifier le déploiement existant et choisir une nouvelle version.
+4. Dans **Sessions**, saisir un identifiant unique et stable (ex. `ableton-01`), le titre, la date et l’heure locale d’Ottawa dans une cellule de date, le lieu et le nombre de places. Cocher **Published** pour ouvrir le créneau. Décocher cette case pour le retirer. Choisir un nouvel identifiant pour chaque séance.
+5. **Bookings** regroupe les inscriptions et demandes de live. Chaque inscription réserve une place. Le participant reçoit un courriel avec la date, l’heure et le lieu. HMM est averti pour chaque inscription et demande de live. Répondre à la notification d’une demande de live pour confirmer la prestation avec l’organisateur. Les colonnes de suivi passent de `pending` à `sent` après acceptation par le service d’envoi.
+
+Pour vérifier le service, réserver une séance d’essai avec une adresse contrôlée par HMM, vérifier la réception et le nombre de places, puis dépublier la séance. Les données du classeur, identifiants privés et mots de passe restent hors du dépôt.
 
 ## Publier un article
 

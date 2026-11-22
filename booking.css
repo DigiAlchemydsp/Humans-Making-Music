@@ -1,0 +1,36 @@
+.booking-hero nav, .submit-row, .calendar-head, .calendar-head > div { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; }
+.booking-hero nav { margin-top: 1.8rem; }
+.booking-section { display: grid; grid-template-columns: 4fr 6fr; gap: clamp(2rem,8vw,8rem); padding: clamp(2rem,5vw,5rem) .75rem; border-top: 1px solid var(--line); }
+.booking-intro h2 { font-size: clamp(2.5rem,5vw,4.75rem); line-height: 1; letter-spacing: -.045em; margin: 0 0 1.5rem; }
+.booking-intro .eyebrow { margin-bottom: 1.2rem; }
+.booking-intro p:not(.eyebrow), .note, .result { max-width: 46ch; line-height: 1.6; color: var(--muted); }
+.calendar-head { justify-content: space-between; margin-bottom: .8rem; }
+.calendar-head h3 { font-size: clamp(1.35rem,3vw,2rem); letter-spacing: -.04em; margin: 0; }
+.calendar-head > div { gap: .4rem; }
+.calendar-head button { width: 2.75rem; height: 2.75rem; border: 1px solid var(--line); font-size: 1.5rem; }
+.calendar { width: 100%; table-layout: fixed; border-collapse: collapse; }
+.calendar th { font-size: .875rem; color: var(--muted); font-weight: normal; padding: .5rem 0; }
+.calendar td { text-align: center; border-top: 1px solid #d9d9d4; height: 2.85rem; font-variant-numeric: tabular-nums; color: var(--muted); }
+.calendar td button { width: 100%; min-height: 2.75rem; background: var(--ink); color: var(--paper); font-weight: bold; }
+.calendar td button[aria-pressed="true"] { text-decoration: underline double; text-underline-offset: .2em; }
+button:disabled, fieldset:disabled button { cursor: default; opacity: .45; }
+.note, .result:not(:empty) { margin: 1rem 0; }
+.result:not(:empty) { border-left: 3px solid var(--ink); padding-left: .8rem; color: var(--ink); }
+.slot { padding: 1rem 0; border-top: 1px solid var(--line); }
+.slot h4 { margin: 0 0 .35rem; font-size: 1.25rem; }
+.slot p { line-height: 1.5; margin-bottom: .5rem; }
+fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+legend { font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; }
+#workshop-form { padding-top: 1.25rem; border-top: 1px solid var(--line); }
+.booking-section label { display: block; font-size: 1rem; margin-bottom: 1rem; font-weight: 600; }
+.booking-section label span { color: var(--muted); font-weight: normal; }
+.booking-section input, .booking-section textarea { display: block; margin-top: .4rem; width: 100%; min-width: 0; border: 1px solid var(--line); border-radius: 0; background: #fff; padding: .7rem; font: inherit; font-weight: normal; color: var(--ink); }
+.booking-section textarea { resize: vertical; }
+.field-pair { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+.submit { background: var(--ink); color: white; padding: .85rem 1.1rem; font-weight: bold; text-align: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 760px) {
+  .booking-section { grid-template-columns: minmax(0, 1fr); padding-inline: 0; }
+  .booking-intro h2 br { display: initial; }
+}
+@media (max-width: 480px) { .field-pair { grid-template-columns: 1fr; gap: 0; } }
