@@ -13,6 +13,8 @@ window.HMM_CONFIG = {
     // null conserve l'affiche définie dans index.html.
     poster: null
   },
+  // Public booking web app URL (the deployed /exec address).
+  bookingApiUrl: null,
   contactEmail: null,
   instagramUrl: null,
   youtubeUrl: null
