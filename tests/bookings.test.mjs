@@ -7,21 +7,30 @@ import { randomUUID } from 'node:crypto';
 const script = readFileSync(new URL('../booking-service/Code.gs', import.meta.url), 'utf8');
 function environment() {
   const rows = [Array(12).fill('Header')];
-  const slotRows = [[], ['ableton-01', 'Ableton Live', new Date('2099-12-02T01:00:00Z'), 'Ottawa studio', 1, true]];
-  const sheet = data => ({
-    getLastRow: () => data.length,
-    appendRow: row => data.push(row),
-    getRange: (r, c, n = 1, w = 1) => ({
-      getValues: () => data.slice(r - 1, r - 1 + n).map(row => row.slice(c - 1, c - 1 + w)),
-      setValue: v => { data[r - 1][c - 1] = v; }
-    })
-  });
+  const slotRows = [[], ['ableton-01', 'Ableton Live', (Date.UTC(2099, 11, 1, 20) - Date.UTC(1899, 11, 30)) / 86400000, 'Ottawa studio', 1, true]];
   const messages = [];
   const fake = {
     Date, console,
-    Utilities: { formatDate: (d, zone, pattern) => pattern === 'yyyy-MM-dd' ? new Intl.DateTimeFormat('sv-SE', {timeZone:zone}).format(d) : d.toISOString() },
+    Utilities: { parseDate: s => new Date(s.replace(' ', 'T') + '-05:00'), formatDate: (d, zone, pattern) => pattern === 'yyyy-MM-dd' ? new Intl.DateTimeFormat('sv-SE', {timeZone:zone}).format(d) : d.toISOString() },
     PropertiesService: { getScriptProperties: () => ({ getProperty: k => k === 'HMM_TEAM_EMAIL' ? 'bookings@example.org' : 'private-id' }) },
-    SpreadsheetApp: { flush() {}, openById: () => ({ getSheetByName: n => sheet(n === 'Sessions' ? slotRows : rows) }) },
+    Sheets: { Spreadsheets: { Values: {
+      get: (_id, range) => {
+        if (range === 'Sessions!A2:F') return { values: slotRows.slice(1) };
+        if (range === 'Bookings!K2:L') return { values: rows.slice(1).map(r => r.slice(10)) };
+        if (range === 'Bookings!A2:L' || range === 'Bookings!A2:D') return { values: rows.slice(1) };
+        const n = Number(range.match(/!A(\d+):/)[1]);
+        return { values: [rows[n - 1]] };
+      },
+      append: (body, _id, _range, options) => {
+        assert.equal(options.valueInputOption, 'RAW');
+        rows.push(body.values[0]);
+        return { updates: { updatedRange: 'Bookings!A' + rows.length + ':L' + rows.length } };
+      },
+      update: (body, _id, range) => {
+        const [, col, n] = range.match(/!([KL])(\d+)/);
+        rows[n - 1][col === 'K' ? 10 : 11] = body.values[0][0];
+      }
+    } } },
     LockService: { getScriptLock: () => ({ tryLock: () => true, releaseLock() {} }) },
     MailApp: { getRemainingDailyQuota: () => 50, sendEmail: m => messages.push(m) },
     ContentService: { MimeType: { JSON: 'json' }, createTextOutput: raw => ({ setMimeType: () => JSON.parse(raw) }) }

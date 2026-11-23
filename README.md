@@ -43,7 +43,7 @@ Le statut devient « Watch now » dès qu'une vidéo valide est configurée. San
 Les descriptifs complémentaires des ateliers sont des textes de présentation à affiner ensemble. Les dates réservables proviennent du calendrier administré par HMM.
 
 ## Réservations
-La page `booking.html` présente les ateliers et les demandes pour le duo. Elle fonctionne sous le chemin du projet GitHub Pages. Les données personnelles et l’envoi des messages sont gérés dans le compte Google choisi par HMM.
+Le script utilise l’autorisation Google `drive.file` pour le classeur qu’il crée. La page `booking.html` présente les ateliers et les demandes pour le duo. Elle fonctionne sous le chemin du projet GitHub Pages. Les données personnelles et l’envoi des messages sont gérés dans le compte Google choisi par HMM.
 
 1. Depuis ce compte, créer un projet dans Google Apps Script. Copier `booking-service/Code.gs` et `booking-service/appsscript.json` dans l’éditeur (le manifeste s’affiche via les paramètres du projet).
 2. Exécuter `setup` une fois et autoriser le script. Il crée un classeur privé, initialise les feuilles et installe la relance des courriels. Le lien du classeur apparaît dans le journal d’exécution. L’expéditeur est le compte Google qui déploie le script. La propriété de script `HMM_TEAM_EMAIL` fixe la boîte de réponse et de notification, initialement celle du propriétaire.
