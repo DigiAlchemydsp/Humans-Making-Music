@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9f9f7">
+  <meta name="description" content="Brain Waves and Majorquad play live by the water. Two films and two photographs from the HMM outdoor session.">
+  <title>Riverside session · Gallery | Humans Making Music</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="gallery.css">
+  <script src="gallery.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Humans Making Music, home"><img src="assets/hmm-logo-black.svg" width="166" height="79" alt="Humans Making Music"></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html#sessions">Sessions</a>
+        <a href="gallery.html" aria-current="page">Gallery</a>
+        <a href="workshops.html">Workshops</a>
+      </nav>
+    </header>
+    <main id="main">
+      <header class="gallery-intro">
+        <p class="eyebrow">HMM Gallery</p>
+        <h1>Riverside session.</h1>
+        <div class="gallery-byline"><p>Brain Waves × Majorquad</p><span>2 films · 2 photographs</span></div>
+      </header>
+      <div class="gallery-grid" aria-label="Session gallery">
+        <a class="gallery-item" href="assets/gallery/on-the-dock.webp" data-kind="photo">
+          <div class="gallery-frame"><img src="assets/gallery/on-the-dock.webp" width="864" height="1536" alt="The two musicians lean over their samplers on a sunlit wooden dock." fetchpriority="high"></div>
+          <div class="gallery-caption"><h2>At the controls</h2><span>Photograph</span></div>
+        </a>
+        <a class="gallery-item" href="assets/gallery/session-part-2.mp4" data-kind="video">
+          <div class="gallery-frame"><img src="assets/gallery/part-2-cover.webp" width="512" height="910" alt="From behind the duo, the low sun reflects off the water beside the dock."><span class="play-mark" aria-hidden="true"></span></div>
+          <div class="gallery-caption"><h2>Session part 2</h2><span>Film · 1:00</span></div>
+        </a>
+        <a class="gallery-item" href="assets/gallery/at-the-controls.webp" data-kind="photo">
+          <div class="gallery-frame"><img src="assets/gallery/at-the-controls.webp" width="864" height="1536" alt="The duo look towards the camera with their electronic instruments and cables in the foreground." loading="lazy"></div>
+          <div class="gallery-caption"><h2>Dockside portrait</h2><span>Photograph</span></div>
+        </a>
+        <a class="gallery-item" href="assets/gallery/session-part-6.mp4" data-kind="video">
+          <div class="gallery-frame"><img src="assets/gallery/part-6-cover.webp" width="512" height="910" alt="A wide view of the two performers and their instruments by the water, framed by a bare tree." loading="lazy"><span class="play-mark" aria-hidden="true"></span></div>
+          <div class="gallery-caption"><h2>Session part 6</h2><span>Film · 0:54</span></div>
+        </a>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="footer-row"><p>HMM · Humans Making Music</p><a class="back-home" href="index.html">Back to HMM</a></div></footer>
+  </div>
+  <dialog class="gallery-viewer" aria-labelledby="media-title">
+    <div class="viewer-shell">
+      <div class="viewer-bar"><span id="media-count"></span><button type="button" id="close-viewer" autofocus>Close <span aria-hidden="true">×</span></button></div>
+      <div class="viewer-stage" id="media-stage"></div>
+      <div class="viewer-footer">
+        <h2 id="media-title" aria-live="polite"></h2>
+        <nav aria-label="Browse gallery"><button type="button" id="prev-media">Previous</button><button type="button" id="next-media">Next</button></nav>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>

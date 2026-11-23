@@ -132,3 +132,7 @@ video { display: block; width: 100%; max-height: 60vh; margin-top: 22px; backgro
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
+@media (max-width: 760px) {
+  .site-header, .site-header nav { flex-wrap: wrap; }
+}
