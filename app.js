@@ -32,6 +32,14 @@
     });
   });
 
+  function openLinkedAbout() {
+    if (window.location.hash === '#about' && !document.getElementById('about-dialog')?.open) {
+      openDialog('about-dialog', document.querySelector('[data-dialog="about-dialog"]'));
+    }
+  }
+  window.addEventListener('hashchange', openLinkedAbout);
+  openLinkedAbout();
+
   const setText = (id, value) => {
     const element = document.getElementById(id);
     if (element && typeof value === 'string' && value.trim()) element.textContent = value;

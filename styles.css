@@ -77,6 +77,9 @@ h1 { font-size: clamp(56px, 7.55vw, 108px); line-height: .97; letter-spacing: -.
 .site-footer nav { gap: 40px; }
 .concept-note { font-size: 12px; font-style: italic; color: var(--muted); margin-top: 20px; }
 dialog { width: min(640px, calc(100% - 36px)); max-height: calc(100dvh - 40px); padding: 0; border: 1px solid var(--line); color: var(--ink); background: var(--paper); overflow: auto; }
+#about-dialog h3 { margin: 1.75rem 0 0; font-size: 1.375rem; line-height: 1.25; }
+#about-dialog h3 + p, #about-dialog .about-link { margin-top: .5rem; }
+.about-link a { text-decoration: underline; text-underline-offset: .2em; }
 dialog::backdrop { background: rgb(0 0 0 / .48); backdrop-filter: blur(3px); }
 .dialog-inner { padding: 48px 40px 40px; }
 .dialog-close { position: absolute; top: 8px; right: 12px; width: 44px; height: 44px; font-size: 32px; line-height: 1; }
